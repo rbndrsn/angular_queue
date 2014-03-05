@@ -7,20 +7,22 @@
   <h3 class="text-muted">NoQ Angular</h3>
 </div>
 
-<div>
-  <h4>Current Queue</h4>
-  <p>
-    <li ng-repeat="guest in guests">
-      <span>{{guest.name}}</span>
-    </li>
-  </p>
+    <div ng-controller="guestCtrl">
+      <span>Current Queue Members {{guests.length}}</span>
+      [ <a href="" ng-click="archive()">remove selected</a> ]
+      <ol class="unstyled">
+        <li ng-repeat="guest in guests">
+          <span class="done-{{guest.done}}">{{guest.name}}</span>
+          <input type="checkbox" ng-model="guest.done">
+        </li>
+      </ol>
+      <form ng-submit="addGuest()">
+        <input type="text" ng-model="guestName"  size="30"
+               placeholder="add new guest here">
+        <input class="btn-primary" type="submit" value="add">
+      </form><br>
+    </div>
 
-  <h4>Add to the Queue</h4>
-  <p>
-    Form goes here!
-  </p>
-</div>
-
-<div>
+<div class="footer">
   <p>2014 Rob Anderson</p>
 </div>
